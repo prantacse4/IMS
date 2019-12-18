@@ -21,7 +21,7 @@ $namesession = $rowsession['user_fullname'];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Purchase</title>
+  <title>Sale</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -227,7 +227,7 @@ $namesession = $rowsession['user_fullname'];
 
           <!--   Purchase -->
           <li class="nav-item has-treeview active">
-            <a href="../purchase/purchase.php" class="nav-link active"  id="product">
+            <a href="../purchase/purchase.php" class="nav-link "  id="product">
               <i class="nav-icon fas fa-baby-carriage"></i>
               <p>
                 Purchase
@@ -237,8 +237,8 @@ $namesession = $rowsession['user_fullname'];
 
 
           <!--   Sale -->
-          <li class="nav-item has-treeview">
-            <a href="../sale/sale.php" class="nav-link"  id="product">
+          <li class="nav-item has-treeview active">
+            <a href="../sale/sale.php" class="nav-link active"  id="product">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Sale
