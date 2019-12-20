@@ -254,6 +254,75 @@ $namesession = $rowsession['user_fullname'];
             </a>
           </li>
 
+                    <li class="nav-item has-treeview ">
+            <a href="../employee/employee.php" class="nav-link "  >
+              <i class="nav-icon fas fa-hard-hat"></i>
+              <p>
+                Employee
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview ">
+            <a href="../customer/customer.php" class="nav-link "  >
+              <i class="nav-icon fas fa-user-injured"></i>
+              <p>
+                Customers
+              </p>
+            </a>
+          </li>
+
+
+
+          <li class="nav-item has-treeview ">
+            <a href="../expense/expense.php" class="nav-link " >
+              <i class="nav-icon fas  fa-warehouse"></i>
+              <p>
+                Expense
+              </p>
+            </a>
+          </li>
+
+
+          <li class="nav-item has-treeview ">
+            <a href="../investment/investment.php" class="nav-link " >
+              <i class="nav-icon fas fa-donate"></i>
+              <p>
+                Investment
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview ">
+            <a href="../loan/loan.php" class="nav-link ">
+              <i class="nav-icon fas fa-hand-holding-usd"></i>
+              <p>
+                Loan
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview ">
+            <a href="../borrow/borrow.php" class="nav-link " >
+              <i class="nav-icon fas fa-briefcase"></i>
+              <p>
+                Borrow
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview ">
+            <a href="../refund/refund.php" class="nav-link "  >
+              <i class="nav-icon fas fa-funnel-dollar"></i>
+              <p>
+                Refund
+              </p>
+            </a>
+          </li>
+
+
+
+
           <li class="nav-item has-treeview ">
             <a href="../help/help.php" class="nav-link "  id="help">
               <i class="nav-icon fas fa-people-carry"></i>

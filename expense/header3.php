@@ -9,21 +9,19 @@ $email="";
 if (isset( $_SESSION['email'])) {
   $email =  $_SESSION['email'];
 }
-$query = "SELECT * FROM users WHERE user_email = '$email'";
-$row = $db->select($query)->fetch_assoc();
-$id = $row['user_id'];
-$name = $row['user_fullname'];
+$querysession = "SELECT * FROM users WHERE user_email = '$email'";
+$rowsession = $db->select($querysession)->fetch_assoc();
+$namesession = $rowsession['user_fullname'];
 
 
  ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>About</title>
+  <title>Company</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,7 +87,7 @@ $name = $row['user_fullname'];
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-user"></i> <?php echo $name; ?>
+          <i class="far fa-user"></i> <?php echo $namesession; ?>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
@@ -160,6 +158,7 @@ $name = $row['user_fullname'];
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
 
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -204,7 +203,7 @@ $name = $row['user_fullname'];
 
         <!--   Company -->
           <li class="nav-item has-treeview">
-            <a href="../company/company.php" class="nav-link "  id="product">
+            <a href="../company/company.php" class="nav-link"  >
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Company
@@ -227,7 +226,7 @@ $name = $row['user_fullname'];
 
           <!--   Purchase -->
           <li class="nav-item has-treeview">
-            <a href="../purchase/purchase.php" class="nav-link"  id="purchase">
+            <a href="../purchase/purchase.php" class="nav-link"  id="product">
               <i class="nav-icon fas fa-baby-carriage"></i>
               <p>
                 Purchase
@@ -238,7 +237,7 @@ $name = $row['user_fullname'];
 
           <!--   Sale -->
           <li class="nav-item has-treeview">
-            <a href="../sale/sale.php" class="nav-link"  id="sale">
+            <a href="../sale/sale.php" class="nav-link"  id="product">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Sale
@@ -250,7 +249,7 @@ $name = $row['user_fullname'];
 
 
           <li class="nav-item has-treeview ">
-            <a href="../profile/profile.php" class="nav-link "  >
+            <a href="../profile/profile.php" class="nav-link "  id="product">
               <i class="nav-icon fas fa-id-card-alt"></i>
               <p>
                 Profile
@@ -258,8 +257,7 @@ $name = $row['user_fullname'];
             </a>
           </li>
 
-
-          <li class="nav-item has-treeview ">
+                    <li class="nav-item has-treeview ">
             <a href="../employee/employee.php" class="nav-link "  >
               <i class="nav-icon fas fa-hard-hat"></i>
               <p>
@@ -279,8 +277,8 @@ $name = $row['user_fullname'];
 
 
 
-          <li class="nav-item has-treeview ">
-            <a href="../expense/expense.php" class="nav-link " >
+          <li class="nav-item has-treeview active">
+            <a href="../expense/expense.php" class="nav-link active" >
               <i class="nav-icon fas  fa-warehouse"></i>
               <p>
                 Expense
@@ -325,6 +323,8 @@ $name = $row['user_fullname'];
             </a>
           </li>
 
+
+
           <li class="nav-item has-treeview ">
             <a href="../help/help.php" class="nav-link "  id="help">
               <i class="nav-icon fas fa-people-carry"></i>
@@ -344,8 +344,8 @@ $name = $row['user_fullname'];
             </a>
           </li>
 
-          <li class="nav-item has-treeview active">
-            <a href="../aboutus/aboutus.php" class="nav-link active"  id="product">
+          <li class="nav-item has-treeview ">
+            <a href="../aboutus/aboutus.php" class="nav-link "  id="product">
               <i class="nav-icon fab fa-connectdevelop"></i>
               <p>
                 About Us

@@ -352,7 +352,7 @@ $(document).on('click', '.remove', function(){
       $('#item_table').find("tr:gt(0)").remove();
       alert("Sale Successfully");
 
-       window.location.href='view_sale.php'; 
+       window.location.href='sale.php'; 
      
     }
    });
