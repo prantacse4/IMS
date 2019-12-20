@@ -288,7 +288,7 @@ $namesession = $rowsession['user_fullname'];
 
 
           <li class="nav-item has-treeview ">
-            <a href="../invesment/invesment.php" class="nav-link " >
+            <a href="../investment/investment.php" class="nav-link " >
               <i class="nav-icon fas fa-donate"></i>
               <p>
                 Investment

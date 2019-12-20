@@ -178,12 +178,12 @@ $page ='investment';
 
 
 
-                  <a href="company_edit.php?id=<?php echo $row['inv_id']; ?>" style="color: white;"> 
+                  <a href="investment_edit.php?id=<?php echo $row['inv_id']; ?>" style="color: white;"> 
                     <button class="btn btn-success">
                       <span class="fa fa-edit"></span>
                     </button>
                   </a>
-                  <a href="company_delete.php?id=<?php echo $row['inv_id']; ?>" style="color: white;"> 
+                  <a href="investment_delete.php?id=<?php echo $row['inv_id']; ?>" style="color: white;"> 
                     <button class="btn btn-danger">
                       <span class="fa fa-trash-alt"></span>
                     </button>

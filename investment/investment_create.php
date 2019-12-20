@@ -5,17 +5,17 @@ $page ='investment';
 date_default_timezone_set("Asia/Dhaka");
 if(isset($_POST['submit']))
 {
-  $inv_date= $_POST['inv_date'];
+ /* $inv_date= $_POST['inv_date'];*/
   $inv_amount= $_POST['inv_amount'];
   $inv_by=mysqli_real_escape_string($db->link, $_POST['inv_by']);
   $added_by=mysqli_real_escape_string($db->link, $_POST['added_by']);
   $inv_desc=mysqli_real_escape_string($db->link, $_POST['inv_desc']);
-  if ($inv_by=='' || $added_by=='' || $inv_by==''|| $inv_amount=='' || $inv_date=='') {
+  if ($inv_by=='' || $added_by=='' || $inv_by==''|| $inv_amount=='') {
     $error="Field must not be empty";
   }
   else
   {
-    $query="INSERT INTO investment(inv_date,inv_amount,inv_by,added_by,inv_desc) VALUES('$inv_date','$inv_amount','$inv_by','$added_by', '$inv_desc')";
+    $query="INSERT INTO investment(inv_amount,inv_by,added_by,inv_desc) VALUES('$inv_amount','$inv_by','$added_by', '$inv_desc')";
     $insert=$db->insert($query);
     if($insert){
        echo "<script>alert('Record Created successfully');</script>";
@@ -69,16 +69,16 @@ if(isset($_POST['submit']))
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Investment By</label>
                                         <div class="col-sm-6">
                       <select class="browser-default custom-select" name="inv_by" required>
-                        <option selected value="" >Select Employee</option>
+                        <option selected value="" >Select Author</option>
         <?php 
-            $query4="SELECT * FROM employee";
+            $query4="SELECT * FROM users";
             $read4=$db->select($query4);
             if ($read4) {
           while ($row4=$read4->fetch_assoc()) {
 
                ?>
 
-                <option value="<?php echo $row4['emp_name']; ?>"><?php echo $row4['emp_name']; ?></option>
+                <option value="<?php echo $row4['user_fullname']; ?>"><?php echo $row4['user_fullname']; ?></option>
            <?php 
              }
            }
@@ -95,12 +95,12 @@ if(isset($_POST['submit']))
                     </div>
                   </div>
 
-                  <div class="form-group row">
+                 <!--  <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Investment Date</label>
                     <div class="col-sm-6">
-                      <input type="date" name="inv_date" class="form-control"  id="today2"  required>
+                      <input type="date" name="inv_date" class="form-control" id="today2"   required>
                     </div>
-                  </div>
+                  </div> -->
 
 
                   <div class="form-group row">
@@ -115,7 +115,7 @@ if(isset($_POST['submit']))
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-6">
-                      <input type="text" name="inv_desc" required class="form-control"  placeholder="Enter Description">
+                      <input type="" name="inv_desc" required class="form-control"  placeholder="Enter Description">
                     </div>
                   </div>
 
