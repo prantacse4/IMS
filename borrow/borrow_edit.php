@@ -1,33 +1,40 @@
 <?php 
-$page ='company';
+$page ='borrow';
   include 'header3.php';
 
 $id="";
 $id = $_GET['id'];
 if (isset($_POST['update'])) {
-  $com_name=mysqli_real_escape_string($db->link, $_POST['com_name']);
-  $com_desc=mysqli_real_escape_string($db->link, $_POST['com_desc']);
-  $com_contact=mysqli_real_escape_string($db->link, $_POST['com_contact']);
-  $com_location=mysqli_real_escape_string($db->link, $_POST['com_location']);
-  $com_address=mysqli_real_escape_string($db->link, $_POST['com_address']);
-  $query = "UPDATE company
+
+  $bor_by=mysqli_real_escape_string($db->link, $_POST['bor_by']);
+  $bor_date= $_POST['bor_date'];
+  $bor_amount= $_POST['bor_amount'];
+  $bor_from=mysqli_real_escape_string($db->link, $_POST['bor_from']);
+  $bor_from_contact=mysqli_real_escape_string($db->link, $_POST['bor_from_contact']);
+  $return_date= $_POST['return_date'];
+  $bor_note=mysqli_real_escape_string($db->link, $_POST['bor_note']);
+
+
+  $query = "UPDATE borrow
   SET
-    com_name='$com_name',
-    com_desc='$com_desc',
-    com_contact = '$com_contact',
-    com_location='$com_location',
-    com_address = '$com_address'
-    WHERE com_id ='$id' ";
+    bor_by='$bor_by',
+    bor_date='$bor_date',
+    bor_amount='$bor_amount',
+    bor_from='$bor_from',
+    bor_from_contact='$bor_from_contact',
+    return_date='$return_date',
+    bor_note='$bor_note'
+    WHERE bor_id ='$id' ";
   $update = $db->update($query);
 
     echo "<script>alert('Record Updated successfully');</script>";
-    echo "<script>window.location.href='company.php'</script>"; 
+    echo "<script>window.location.href='borrow.php'</script>"; 
     
 }
 if(isset($_POST['cancel'])){
-  echo "<script>window.location.href='company.php'</script>"; 
+  echo "<script>window.location.href='borrow.php'</script>"; 
 }
-$query2 = "SELECT * FROM company WHERE com_id = $id";
+$query2 = "SELECT * FROM borrow WHERE bor_id = $id";
 $row = $db->select($query2)->fetch_assoc();
 ?>
 
@@ -38,13 +45,13 @@ $row = $db->select($query2)->fetch_assoc();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Edit Company</h1>
+            <h1 class="m-0 text-dark">Update Borrow</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item "><a href="company.php">Company</a></li>
-              <li class="breadcrumb-item active">Edit Company</li>
+              <li class="breadcrumb-item "><a href="borrow.php">Borrow</a></li>
+              <li class="breadcrumb-item active">Update Borrow</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -60,57 +67,116 @@ $row = $db->select($query2)->fetch_assoc();
         <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Company Information</h3>
+                <h3 class="card-title">Borrow Information</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form class="form-horizontal" action="" method="post">
                 <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Borrow By</label>
+                                        <div class="col-sm-6">
+                      <select class="browser-default custom-select" name="bor_by">
+        <?php 
+            $query4="SELECT * FROM users";
+            $read4=$db->select($query4);
+            if ($read4) {
+          while ($row4=$read4->fetch_assoc()) {
+            if($row['bor_by']==$row4['user_fullname']){
+              ?>
+               <option selected value="<?php echo $row4['user_fullname']; ?>"><?php echo $row4['user_fullname']; ?></option>
+               <?php
+            }
+            else{
+               ?>
+                <option value="<?php echo $row4['user_fullname']; ?>"><?php echo $row4['user_fullname']; ?></option>
+           <?php 
+         }
+             }
+           }
+          ?>
+                      </select>
+                      
+                    </div>
+                  </div>
 
-                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Company Name</label>
+
+
+
+
+
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Borrow Date</label>
                     <div class="col-sm-6">
-                      <input type="text" name="com_name" class="form-control" value="<?php echo $row['com_name']; ?>"  placeholder="Enter Company Name">
+                      <input type="Date" name="bor_date" value="<?php echo $row['bor_date']; ?>"   class="form-control" required  placeholder="Enter Date">
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Amount</label>
+                    <div class="col-sm-6">
+                      <input type="number" name="bor_amount" value="<?php echo $row['bor_amount']; ?>" class="form-control" required  placeholder="Enter Amount">
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Description</label>
+                    <label  class="col-sm-2 col-form-label">Borrow From</label>
                     <div class="col-sm-6">
-                      <input type="text" name="com_desc" value="<?php echo $row['com_desc']; ?>" class="form-control" placeholder="Enter Company Description">
+                      <input type="text" name="bor_from" class="form-control" value="<?php echo $row['bor_from']; ?>" required  placeholder="Enter Name">
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Contact</label>
                     <div class="col-sm-6">
-                      <input type="text" name="com_contact" value="<?php echo $row['com_contact']; ?>" class="form-control"  placeholder="Enter Contact Number">
+                      <input type="text" name="bor_from_contact" value="<?php echo $row['bor_from_contact']; ?>" class="form-control" required  placeholder="Enter Contact">
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Return Date</label>
+                    <div class="col-sm-6">
+                      <input type="Date" name="return_date" class="form-control" value="<?php echo $row['return_date']; ?>" required  placeholder="Enter Date">
+                    </div>
+                  </div>
+
 
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Location</label>
+                    <label  class="col-sm-2 col-form-label">Note</label>
                     <div class="col-sm-6">
-                      <input type="text" name="com_location" value="<?php echo $row['com_location']; ?>" class="form-control"  placeholder="Enter Location">
+                      <input type="text" name="bor_note" required class="form-control" value="<?php echo $row['bor_note']; ?>"  placeholder="Enter Note">
                     </div>
                   </div>
 
 
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Address</label>
-                    <div class="col-sm-6">
-                      <input type="text" name="com_address" class="form-control" value="<?php echo $row['com_address']; ?>" placeholder="Enter Address">
-                    </div>
-                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-4">
                       <button type="submit" name="update" class="btn btn-2 btn-success">Update</button>
                       <button type="reset" class="btn btn-2 btn-danger">Reset</button>
-                      <a class="btn btn-info btn-2" href="company.php">Go Back</a>
+                      <a class="btn btn-info btn-2" href="borrow.php">Go Back</a>
                     </div>
                   </div>
 
@@ -120,7 +186,7 @@ $row = $db->select($query2)->fetch_assoc();
             </div>
             <!-- /.card -->
 
-	   
+     
     </div>
   </section>
 <!-- End Main content -->
@@ -128,5 +194,5 @@ $row = $db->select($query2)->fetch_assoc();
 <?php  
   
 
-	include '../inc/footer.php';
+  include '../inc/footer.php';
 ?>
