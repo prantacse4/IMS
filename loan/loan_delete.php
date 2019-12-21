@@ -5,17 +5,17 @@
  ?>
  <?php 
   $db=new Database();
-  $query="SELECT * FROM company";
+  $query="SELECT * FROM loan";
   $read=$db->select($query);
 
 if (isset($_GET['id'])) {
    $id = $_GET['id'];
-   $query = "delete from company where com_id='$id'";
+   $query = "delete from loan where loan_id='$id'";
    $result = $db->delete($query);
     if($result){
        echo "<script>alert('Deleted successfully');</script>";
 // Code for redirection
-    echo "<script>window.location.href='company.php'</script>"; 
+    echo "<script>window.location.href='loan.php'</script>"; 
     }
    }
 
