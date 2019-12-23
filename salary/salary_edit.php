@@ -142,6 +142,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php
@@ -158,6 +160,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php
@@ -173,6 +177,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php
@@ -187,6 +193,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php }
@@ -200,6 +208,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php }
@@ -214,6 +224,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="may" >May</option>                                                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php }
@@ -229,6 +241,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                   
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
                   <?php }
@@ -242,9 +256,42 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="may" >May</option>                                 
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
-                       
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          <option value="december">December</option>
+                     <?php }
+          if($row['sal_month']=='september'){
+                    ?>
+                         <option value="september" selected>September</option>
+                         <option value="january">January</option>  
+                         <option value="february">February</option>           
+                         <option value="march">March</option>                  
+                         <option value="april" >April</option>                 
+                         <option value="may" >May</option>                                 
+                         <option value="jun" >Jun</option>                  
+                         <option value="july" >July</option>                 
+                         <option value="august">August</option>
+                         
+                         <option value="october">October</option>
+                         <option value="november">November</option>
+                         <option value="december">December</option>
+             <?php }
+          if($row['sal_month']=='october'){
+                    ?>
+                         <option value="october" selected>October</option>
+                         <option value="january">January</option>  
+                         <option value="february">February</option>           
+                         <option value="march">March</option>                  
+                         <option value="april" >April</option>                 
+                         <option value="may" >May</option>                                 
+                         <option value="jun" >Jun</option>                  
+                         <option value="july" >July</option>                 
+                         <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="november">November</option>
+                         <option value="december">December</option>
+                 
                   <?php }
           if($row['sal_month']=='november'){
                     ?>
@@ -257,7 +304,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
-                         
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="december">December</option>
                   <?php }
              if($row['sal_month']=='december'){
@@ -271,6 +319,8 @@ $row = $db->select($query2)->fetch_assoc();
                          <option value="jun" >Jun</option>                  
                          <option value="july" >July</option>                 
                          <option value="august">August</option>
+                         <option value="september">September</option>
+                         <option value="october">October</option>
                          <option value="november" >November</option>
                          
                   <?php 
@@ -302,9 +352,9 @@ $row = $db->select($query2)->fetch_assoc();
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-4">
-                      <button type="submit" name="update" class="btn btn-2 btn-success">Submit</button>
+                      <button type="submit" name="update" class="btn btn-2 btn-success">Update</button>
                       <button type="reset" class="btn btn-2 btn-danger">Reset</button>
-                      <a class="btn btn-info btn-2" href="refund.php">Go Back</a>
+                      <a class="btn btn-info btn-2" href="salary.php">Go Back</a>
                     </div>
                   </div>
 
@@ -327,14 +377,18 @@ $row = $db->select($query2)->fetch_assoc();
 <script type="text/javascript">
 
 
+
+  function payment(){
   var aa=document.getElementById("sal_amount").value;
   var bb=document.getElementById("sal_payment").value;
-  //aa=intParse(aa);
-  //bb=intParse(bb);
-   
-  //alert(bb);
-  document.getElementById("sal_payment").value=bb;
+  //document.getElementById("sal_payment").value=bb;
   document.getElementById("due").value=aa-bb;
+  }
+
+  var aa2=document.getElementById("sal_amount").value;
+  var bb2=document.getElementById("sal_payment").value;
+  //document.getElementById("sal_payment").value=bb2;
+  document.getElementById("due").value=aa2-bb2;
 
   var $cat_id = $( '#cat_id' ),
         $pro_id = $( '#pro_id' ),
@@ -344,11 +398,10 @@ $cat_id.on( 'change', function() {
     $pro_id.html( $options.filter( '[name="' + this.value + '"]' ) );
 } ).trigger( 'change' );
 
-function amount(){
-  var a=document.getElementById("pro_price").value;
-  var b=document.getElementById("pro_qty").value;
-
-  document.getElementById("total_amount").value=(a*b);
-
-}
+var selection = document.getElementById("emp_id");
+selection.onchange = function(event){
+  var rc = event.target.options[event.target.selectedIndex].dataset.rc;
+  document.getElementById("sal_amount").value=rc;
+  payment();
+};
 </script>

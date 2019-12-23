@@ -70,114 +70,124 @@ $page ='company';
 
 
 
-<!-- View Modal -->
-
-                       <div class="modal fade" id="myModal-<?php echo $row['emp_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
-
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">emptomer Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="emptomer.php" method="post">
-                <div class="card-body">
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Employee Name</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['emp_name']; ?></p>
-                    </div>
-                  </div>
-                 
-
-                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Employee Contact</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['emp_contact']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Employee Designation</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['emp_designation']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['emp_salary']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Employee type</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['emp_type']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Joining Date</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['joining_date']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Resign Date</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php
+                        <?php
 
                         $resign=$row['resign_date'];
-                        if($resign=='0000-00-00'){
-                          echo "Working now";
+                        if($resign==''){
+                           $resign = "Working now";
                         }
                         else{
-                            echo $resign; 
+                             $resign; 
                           }
-                       ?></p>
+                       ?>
+
+
+
+
+
+
+
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['emp_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
+    
+   </div>
+   <div class="btn-infooooo">
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-hard-hat"></i> <?php  echo $row['emp_name']; ?> </h2>
+   <h4 class="modal-title text-center">Employee Information</h4></div>
+   <div class="modal-body modal-body1">
+
+
+<hr class="hr2">
+
+
+                <div class="form-group row">
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Employee Name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['emp_name']; ?>" readonly >
+                      
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
-                
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Employee Contact</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['emp_contact']; ?>" readonly >
+                      
+                    </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
-         </div>
 
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
+                  <div class="form-group row">
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Employee Designation</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['emp_designation']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
-               </div>
-                </div> 
+                  <div class="form-group row">
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Salary</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['emp_salary']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
-              </div>
+                  <div class="form-group row">
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Employee type</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['emp_type']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Joining Date</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['joining_date']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label  class="col-sm-6 col-form-label"><i class="fas fa-angle-double-right"></i> Resign Date</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $resign; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+                 
 
 
-         <!--      End Modal -->
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
 
 
+
+
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- 
+  Modal Close -->
 
 
 

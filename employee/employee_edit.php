@@ -27,11 +27,12 @@ if (isset($_POST['update'])) {
   $update = $db->update($query);
 
     echo "<script>alert('Record Updated successfully');</script>";
+    echo "<script>window.location.href='employee.php'</script>"; 
      
     
 }
 if(isset($_POST['cancel'])){
-  echo "<script>window.location.href='company.php'</script>"; 
+  echo "<script>window.location.href='employee_edit.php'</script>"; 
 }
 $query2 = "SELECT * FROM employee WHERE emp_id = $id";
 $row = $db->select($query2)->fetch_assoc();

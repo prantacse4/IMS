@@ -78,121 +78,149 @@ $page ='salary';
 
 
 
-<!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['sal_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
+
+
+
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['sal_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
     
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
+   </div>
+   <div class="btn-infooooo">
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-donate"></i> <?php  echo $row2['emp_name']; ?>'s </h2>
+   <h4 class="modal-title text-center">Salary Details</h4></div>
+   <div class="modal-body modal-body1">
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Salary Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="" method="post">
-                <div class="card-body">
+
+<hr class="hr2">
+
+
+
+
+
+
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Employee Name</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Employee Name</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row2['emp_name']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row2['emp_name']; ?>" readonly >
+                      
                     </div>
                   </div>
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary Amount</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sal_amount']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary Payment</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sal_payment']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary Due</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sal_due']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary Advance</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sal_advance']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Advance</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['advance_date']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary Month</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sal_month']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Salary Payment Date</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sal_payment_date']; ?></p>
-                    </div>
-                  </div>
-                
 
 
                   
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
-                    
-                
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Salary Amount</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sal_amount']; ?>" readonly >
+                      
+                    </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
-         </div>
-
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
-
-               </div>
-                </div> 
-
-              </div>
-
-
-         <!--      End Modal -->
 
 
 
+                 
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Salary Payment</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sal_payment']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+                  
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Salary Due</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sal_due']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+                  
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Advance Salary</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sal_advance']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                  
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Advance</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['advance_date']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                  
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Salary Month</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sal_month']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                  
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Payment Date</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sal_payment_date']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                
 
 
 
 
 
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
+
+
+
+
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- 
+  Modal Close -->
 
 
 

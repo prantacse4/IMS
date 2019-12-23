@@ -81,119 +81,143 @@ $page ='company';
 
 
 
-<!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['pur_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['pur_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
     
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
+   </div>
+   <div class="btn-infooooo">
+   <h4 class="modal-title text-center">Purchase Details</h4></div>
+   <div class="modal-body modal-body1">
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Purchase Details</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="company.php" method="post">
-                <div class="card-body">
+
+<hr class="hr2">
+
+
+
+
+
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Purchase Code</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Purchase Code</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pur_code']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_code']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Date</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Date</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pur_date']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_date']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Company</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Company</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row3['com_name']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_company']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Supplier</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Supplier</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row2['sup_name']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_supplier']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Total Price</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Total Price</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pur_price']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_price']; ?>" readonly >
+                      
                     </div>
                   </div>
 
-                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Paid</label>
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Paid</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pur_paid']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_paid']; ?>" readonly >
+                      
                     </div>
                   </div>
 
-                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Due</label>
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Due</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pur_due']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_due']; ?>" readonly >
+                      
                     </div>
                   </div>
 
-                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Discount</label>
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Discount</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pur_discount']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_discount']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
+
 
                   
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
+
+
+
+
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
                     
-                
                   </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
-         </div>
-
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
-
-               </div>
-                </div> 
-
-              </div>
-
-
-         <!--      End Modal -->
 
 
 
 
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
 
+
+
+
+<!-- 
+  Modal Close -->
 
 
 

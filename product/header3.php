@@ -14,6 +14,7 @@ $rowsession = $db->select($querysession)->fetch_assoc();
 $namesession = $rowsession['user_fullname'];
 
  ?>
+ 
 <!DOCTYPE html>
 <html>
 <head>

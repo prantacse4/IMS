@@ -87,119 +87,171 @@ $query2="SELECT * FROM category";
        </button> 
 
 
-        <div class="modal fade" id="myModal-<?php echo $pro_id; ?>" role="dialog">
-                <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                   </div>
-                 <div class="modal-body">
-      <section class="content">
-           <div class="container-fluid">
-        <!-- main body start from here -->
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Product Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              
-       
-                <div class="card-body">
+
+
+
+
+
+
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['pro_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
+    
+   </div>
+   <div class="btn-infooooo">
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-luggage-cart"></i> <?php  echo $row['pro_name']; ?> </h2>
+   <h4 class="modal-title text-center">Product Details</h4></div>
+   <div class="modal-body modal-body1">
+
+
+<hr class="hr2">
+
+
+
+
+
+
+        <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Product Name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_name']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
                   <div class="form-group row">
-           <label for="inputEmail3" class="col-sm-2 col-form-label">Product Name</label>
-             <div class="col-sm-6">
-               <p style="padding-top :8px;">: <?php echo $row['pro_name']; ?></p>
-           </div>
-        </div>
-
-                  <div class="form-group row">
-       <label for="inputPassword3" class="col-sm-2 col-form-label">Quantity</label>
-       <div class="col-sm-6">
-     <p style="padding-top :8px;">: <?php echo $row['pro_qty']; ?></p>
-     </div>
-      </div>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Quantity</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_qty']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
 
-                
-                                                    <div class="form-group row">
-                                                      <label for="inputPassword3" class="col-sm-2 col-form-label">Category</label>
-                                                        <div class="col-sm-6">
-                                                         <p style="padding-top :8px;">: <?php echo $row['pro_cat']; ?></p>
-                                                      </div>
-                                                    </div>
+
+                    <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Category</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_cat']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
 
-                            <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Company</label>
-            <div class="col-sm-6">
-            <p style="padding-top :8px;">: <?php echo $row['pro_com']; ?></p>
-              </div>
-            </div>
+
 
             <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Purchase Price</label>
-      <div class="col-sm-6">
-      <p style="padding-top :8px;">: <?php echo  $row['pro_pprice']; ?></p>
-        </div>
-      </div>
-
-       <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Wholesale Price</label>
-      <div class="col-sm-6">
-      <p style="padding-top :8px;">: <?php echo  $row['pro_wholesale']; ?></p>
-        </div>
-      </div>
-
-      <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">MRP Price</label>
-      <div class="col-sm-6">
-      <p style="padding-top :8px;">: <?php echo  $row['pro_mrp']; ?></p>
-        </div>
-      </div>
-
-      <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Location</label>
-      <div class="col-sm-6">
-      <p style="padding-top :8px;">: <?php echo  $row['pro_location']; ?></p>
-        </div>
-      </div>
-
-      <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Notes</label>
-      <div class="col-sm-6">
-      <p style="padding-top :8px;">: <?php echo  $row['pro_notes']; ?></p>
-        </div>
-      </div>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Company</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_com']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
 
 
- 
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Purchase Price</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_pprice']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
-         <div class="form-group row">
-         <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
-          </div>
-         </div>
-                <!-- /.card-body -->
-         </div>
-            <!-- /.card -->
-    </div>
-  </section>
 
-               </div>
-              
 
-             <div class="modal-footer">
-           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
 
-           </div>
-         </div> 
+                    
+                    <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Wholesale Price</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_wholesale']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
-     </div>
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> MRP Price</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_mrp']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+                <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Location</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_location']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Notes</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_notes']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
+
+
+
+
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- 
+  Modal Close -->
+
+
+
+
+
+
+
+
+
 
 
                 <a href="pro_edit.php?id=<?php echo $row['pro_id']; ?>" style="color: white;"> 

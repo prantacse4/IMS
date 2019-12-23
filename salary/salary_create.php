@@ -113,18 +113,18 @@ date_default_timezone_set("Asia/Dhaka");
                      <div class="col-sm-6">
                        <select class="browser-default custom-select" name="sal_month" required>
                          <option selected value=""  >Select Type</option>
-                          <option value="january" >january</option>
-                         <option value="february" >february</option>
-                         <option value="march" >march</option>
-                         <option value="april" >april</option>
-                         <option value="may" >may</option>
-                         <option value="jun" >jun</option>
-                         <option value="july" >july</option>
-                         <option value="august" >august</option>
-                         <option value="september" >september</option>
-                         <option value="october" >october</option>
-                         <option value="november" >november</option>
-                         <option value="december" >december</option>
+                          <option value="january" >January</option>
+                         <option value="february" >February</option>
+                         <option value="march" >March</option>
+                         <option value="april" >April</option>
+                         <option value="may" >May</option>
+                         <option value="jun" >Jun</option>
+                         <option value="july" >July</option>
+                         <option value="august" >August</option>
+                         <option value="september" >September</option>
+                         <option value="october" >October</option>
+                         <option value="november" >November</option>
+                         <option value="december" >December</option>
 
                        </select>
                     </div>
@@ -141,7 +141,7 @@ date_default_timezone_set("Asia/Dhaka");
                     <div class="col-sm-4">
                       <button type="submit" name="submit" class="btn btn-2 btn-success">Submit</button>
                       <button type="reset" class="btn btn-2 btn-danger">Reset</button>
-                      <a class="btn btn-info btn-2" href="refund.php">Go Back</a>
+                      <a class="btn btn-info btn-2" href="salary.php">Go Back</a>
                     </div>
                   </div>
 

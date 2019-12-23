@@ -71,94 +71,100 @@ $page ='investment';
 
 
 
+                      <!-- modal Start -->
 
-<!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['inv_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['inv_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
     
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
+   </div>
+   <div class="btn-infooooo">
+    <h4 class="modal-title text-center">Investment By</h4>
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-donate"></i> <?php  echo $row['inv_by']; ?> </h2>
+   </div>
+   <div class="modal-body modal-body1">
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Investment Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="investment.php" method="post">
-                <div class="card-body">
+
+<hr class="hr2">
+
+
+
+                  
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Investment By</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Investment By</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['inv_by']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['inv_by']; ?>" readonly >
+                      
                     </div>
                   </div>
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Investment Added By</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['added_by']; ?></p>
-                    </div>
-                  </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Investment Amount</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Added By</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['inv_amount']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Investment Date</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['inv_date']; ?></p>
-                    </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Description</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['inv_desc']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['added_by']; ?>" readonly >
+                      
                     </div>
                   </div>
 
                   
+
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
-                    
-                
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Investment Amount</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['inv_amount']; ?>" readonly >
+                      
+                    </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
-         </div>
-
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
-
-               </div>
-                </div> 
-
-              </div>
 
 
-         <!--      End Modal -->
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Investment Date</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['inv_date']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Description</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['inv_desc']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
+
+
+
+
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- 
+  Modal Close -->
 
 
 

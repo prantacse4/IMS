@@ -88,7 +88,7 @@ $page ='company';
     
    </div>
    <div class="btn-infooooo">
-   <h2 class="modal-title text-center"><i class="nav-icon fas fa-building"></i> <?php echo $row['cus_name']; ?> </h2>
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-user-injured"></i> <?php echo $row['cus_name']; ?> </h2>
    <h4 class="modal-title text-center">Customer Details</h4></div>
    <div class="modal-body modal-body1">
 
@@ -181,7 +181,6 @@ $page ='company';
 
 
 
-     <br />
    </div>
    <div class="modal-footer">
     

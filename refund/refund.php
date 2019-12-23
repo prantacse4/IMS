@@ -77,119 +77,169 @@ $page ='refund';
 
 
 
-<!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['ref_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
+
+
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['ref_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
     
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
+   </div>
+   <div class="btn-infooooo">
+    <h1 class="text-center"><i class="nav-icon fas fa-funnel-dollar"></i></h1>
+   <h4 class="modal-title text-center">Refund Details</h4></div>
+   <div class="modal-body modal-body1">
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Refund Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="" method="post">
-                <div class="card-body">
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund Type</label>
+
+<hr class="hr2">
+
+                  
+
+
+                     <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Refund By</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_type']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['ref_by']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+
+
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund No</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Refund Type</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_number']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['ref_type']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+
+                  
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Product</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Refund No</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row2['pro_name']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['ref_number']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+                  
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Quantity</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Product</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pro_qty']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row2['pro_name']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+                  
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Price</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Quantity</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pro_price']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_qty']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
+
+                  
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Total Amount</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Price</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pro_total_amount']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund Date</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_date']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund By</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_by']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Note</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_note']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_price']; ?>" readonly >
+                      
                     </div>
                   </div>
 
 
                   
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
-                    
-                
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Total Amount</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_total_amount']; ?>" readonly >
+                      
+                    </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
-         </div>
-
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
-
-               </div>
-                </div> 
-
-              </div>
 
 
-         <!--      End Modal -->
 
+        
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Refund Date</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['ref_date']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Note</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['ref_note']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
+
+
+
+
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- 
+  Modal Close -->
 
 
 

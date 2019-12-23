@@ -145,7 +145,6 @@ $page ='company';
 
 
 
-     <br />
    </div>
    <div class="modal-footer">
     

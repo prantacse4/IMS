@@ -1,6 +1,6 @@
 
 <?php  
-$page ='company';
+$page ='sale';
   include 'header3.php';
   $query="SELECT * FROM sale order by sale_id DESC";
   $read=$db->select($query);
@@ -80,120 +80,165 @@ $page ='company';
                       </button> 
 
 
-<!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['sale_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
+
+
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['sale_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
     
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
+   </div>
+   <div class="btn-infooooo">
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Sale Details</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="view_sale.php" method="post">
-                <div class="card-body">
+   <h4 class="modal-title text-center">Sale Details</h4></div>
+   <div class="modal-body modal-body1">
+
+
+<hr class="hr2">
+
+
+
+
+
+
+
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Sale Code</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Sale Code</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_id']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_id']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+
+
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Date</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Date</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_date']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_date']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+
+
+
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Customer</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Customer Name</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $name; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $name; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+
+
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Sale Amount</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Sale Amount</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_amount']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Payment</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_payment']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_amount']; ?>" readonly >
+                      
                     </div>
                   </div>
 
+
+
+
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Discount</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Payment</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_discount']; ?></p>
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_payment']; ?>" readonly >
+                      
                     </div>
                   </div>
+
+
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Discount</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_discount']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
 
                    
 
-                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Due</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_due']; ?></p>
-                    </div>
-                  </div>
-
-                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Type</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sale_type']; ?></p>
-                    </div>
-                  </div>
-
-                  
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
-                    
-                
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Due</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_due']; ?>" readonly >
+                      
+                    </div>
                   </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
-         </div>
-
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
-
-               </div>
-                </div> 
-
-              </div>
-
-
-         <!--      End Modal -->
 
 
 
 
 
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Type</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_type']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
+
+
+
+
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- 
+  Modal Close -->
 
 
 
