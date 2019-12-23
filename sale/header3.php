@@ -296,6 +296,15 @@ $namesession = $rowsession['user_fullname'];
               </p>
             </a>
           </li>
+          
+          <li class="nav-item has-treeview ">
+            <a href="../salary/salary.php" class="nav-link " >
+              <i class="nav-icon fas fa-donate"></i>
+              <p>
+                Salary
+              </p>
+            </a>
+          </li>
 
           <li class="nav-item has-treeview ">
             <a href="../loan/loan.php" class="nav-link ">

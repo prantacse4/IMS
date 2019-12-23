@@ -1,8 +1,8 @@
 
 <?php  
-$page ='refund';
+$page ='salary';
   include 'header3.php';
-  $query="SELECT * FROM refund";
+  $query="SELECT * FROM salary";
   $read=$db->select($query);
 
 ?>
@@ -14,12 +14,12 @@ $page ='refund';
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text2">R e f u n d</h1>
+            <h1 class="m-0 text2">S a l a r y</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Refund</li>
+              <li class="breadcrumb-item active">Salary</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,8 +36,8 @@ $page ='refund';
 
        <div class="card">
             <div class="card-header">
-              <h3 class="card-title card-title2">Refund Information</h3>
-                <a href="refund_create.php" class="btn btn-success btn-add"><i class="fa fa-plus"></i> New Refund</a>
+              <h3 class="card-title card-title2">Salary Information</h3>
+                <a href="salary_create.php" class="btn btn-success btn-add"><i class="fa fa-plus"></i> Add Salary</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -45,9 +45,9 @@ $page ='refund';
                 <thead class="theadcolor">
                 <tr>
                   <th>No</th>
-                  <th>Refund Type</th>
-                  <th>Refund No</th>
-                  <th>Product</th>
+                  <th>Employee Name</th>
+                  <th>Salary Amount</th>
+                  <th>Salary Payment</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -56,20 +56,21 @@ $page ='refund';
           if ($read) {
             $cnt=0;
             while ($row=$read->fetch_assoc()) {
-              $id=$row['pro_id'];
+              $id=$row['emp_id'];
               $cnt++;
-                $query2="SELECT * FROM product where pro_id='$id'";
+                $query2="SELECT * FROM employee where emp_id='$id'";
                     $row2=$db->select($query2)->fetch_assoc();
        ?>
 
                 <tr>
                   <td><?php echo $cnt; ?></td>
-                  <td><?php echo $row['ref_type']; ?></td>
-                  <td><?php echo $row['ref_number']; ?></td>
-                  <td><?php echo $row2['pro_name']; ?></td>
+                  <td><?php echo $row2['emp_name']; ?></td>
+                  <td><?php echo $row['sal_amount']; ?></td>
+                  <td><?php echo $row['sal_payment']; ?></td>
+                  
                   <td>
 
-                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['ref_id']; ?>">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['sal_id']; ?>">
                         <span class="far fa-eye"></span>
                       </button> 
 
@@ -79,7 +80,7 @@ $page ='refund';
 
 <!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['ref_id']; ?>" role="dialog">
+                       <div class="modal fade" id="myModal-<?php echo $row['sal_id']; ?>" role="dialog">
                        <div class="modal-dialog modal-lg">
     
       <!-- Modal content-->
@@ -96,7 +97,7 @@ $page ='refund';
         <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Refund Information</h3>
+                <h3 class="card-title">Salary Information</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -104,63 +105,58 @@ $page ='refund';
                 <div class="card-body">
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund Type</label>
+                    <label  class="col-sm-2 col-form-label">Employee Name</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_type']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row2['emp_name']; ?></p>
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund No</label>
+                    <label  class="col-sm-2 col-form-label">Salary Amount</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_number']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['sal_amount']; ?></p>
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Product</label>
+                    <label  class="col-sm-2 col-form-label">Salary Payment</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row2['pro_name']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['sal_payment']; ?></p>
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Quantity</label>
+                    <label  class="col-sm-2 col-form-label">Salary Due</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pro_qty']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['sal_due']; ?></p>
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Price</label>
+                    <label  class="col-sm-2 col-form-label">Salary Advance</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pro_price']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['sal_advance']; ?></p>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Total Amount</label>
+                    <label  class="col-sm-2 col-form-label">Advance</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['pro_total_amount']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['advance_date']; ?></p>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund Date</label>
+                    <label  class="col-sm-2 col-form-label">Salary Month</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_date']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['sal_month']; ?></p>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Refund By</label>
+                    <label  class="col-sm-2 col-form-label">Salary Payment Date</label>
                     <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_by']; ?></p>
+                      <p style="padding-top :8px;">: <?php echo $row['sal_payment_date']; ?></p>
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Note</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['ref_note']; ?></p>
-                    </div>
-                  </div>
+                
 
 
                   
@@ -208,12 +204,12 @@ $page ='refund';
 
 
 
-                  <a href="refund_edit.php?id=<?php echo $row['ref_id']; ?>" style="color: white;"> 
+                  <a href="salary_edit.php?id=<?php echo $row['sal_id']; ?>" style="color: white;"> 
                     <button class="btn btn-success">
                       <span class="fa fa-edit"></span>
                     </button>
                   </a>
-                  <a href="refund_delete.php?id=<?php echo $row['com_id']; ?>" style="color: white;"> 
+                  <a href="salary_delete.php?id=<?php echo $row['sal_id']; ?>" style="color: white;"> 
                     <button class="btn btn-danger">
                       <span class="fa fa-trash-alt"></span>
                     </button>

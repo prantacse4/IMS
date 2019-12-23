@@ -151,3 +151,57 @@ padding-top: 10px;
 .usericon_profile{
     margin-bottom: 10px;
 }
+
+.modal-dialog1 {
+    max-width: 550px;
+    margin: 1.75rem auto;
+}
+.modal-body1 {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 2rem;
+    background-color:
+#2ba4b8;
+color: white;
+font-size: 18px;
+}
+
+.col-sm-e32 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 12.667%;
+}
+.form-control2[readonly]{
+color:
+white;
+background:
+#2ba4b8;
+border:
+white;
+cursor: pointer;
+font-size: 18px;
+
+   
+}
+
+.btn-infooooo {
+    color: 
+#fff;
+background-color:
+#2ba4b8;
+border-color:
+    #117a8b;
+    transition: 4s;
+}
+
+.hr2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+        border-top-color: currentcolor;
+        border-top-style: none;
+        border-top-width: 0px;
+    border-top: 1px solid 
+    rgba(255, 255, 255, 0.35);
+}

@@ -21,7 +21,7 @@ $namesession = $rowsession['user_fullname'];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Employee</title>
+  <title>Salary</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -203,7 +203,7 @@ $namesession = $rowsession['user_fullname'];
 
         <!--   Company -->
           <li class="nav-item has-treeview">
-            <a href="../company/company.php" class="nav-link" >
+            <a href="../company/company.php" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Company
@@ -257,8 +257,8 @@ $namesession = $rowsession['user_fullname'];
             </a>
           </li>
 
-                    <li class="nav-item has-treeview active">
-            <a href="../employee/employee.php" class="nav-link active"  >
+                    <li class="nav-item has-treeview ">
+            <a href="../employee/employee.php" class="nav-link "  >
               <i class="nav-icon fas fa-hard-hat"></i>
               <p>
                 Employee
@@ -296,8 +296,8 @@ $namesession = $rowsession['user_fullname'];
             </a>
           </li>
 
-          <li class="nav-item has-treeview ">
-            <a href="../salary/salary.php" class="nav-link " >
+          <li class="nav-item has-treeview active">
+            <a href="../salary/salary.php" class="nav-link active" >
               <i class="nav-icon fas fa-donate"></i>
               <p>
                 Salary
@@ -324,7 +324,7 @@ $namesession = $rowsession['user_fullname'];
           </li>
 
           <li class="nav-item has-treeview ">
-            <a href="../refund/refund.php" class="nav-link "  >
+            <a href="../refund/refund.php" class="nav-link"  >
               <i class="nav-icon fas fa-funnel-dollar"></i>
               <p>
                 Refund

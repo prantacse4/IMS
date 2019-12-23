@@ -21,7 +21,7 @@ $namesession = $rowsession['user_fullname'];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Company</title>
+  <title>Refund</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -292,6 +292,15 @@ $namesession = $rowsession['user_fullname'];
               <i class="nav-icon fas fa-donate"></i>
               <p>
                 Investment
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview ">
+            <a href="../salary/salary.php" class="nav-link " >
+              <i class="nav-icon fas fa-donate"></i>
+              <p>
+                Salary
               </p>
             </a>
           </li>

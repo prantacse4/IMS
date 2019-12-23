@@ -69,108 +69,96 @@ $page ='company';
 
 
 
+                      <!-- modal Start -->
 
-<!-- View Modal -->
 
-                       <div class="modal fade" id="myModal-<?php echo $row['com_id']; ?>" role="dialog">
-                       <div class="modal-dialog modal-lg">
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['com_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
     
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                 
-                   </div>
-                    <div class="modal-body">
-                       <section class="content">
-      <div class="container-fluid">
-        <!-- main body start from here -->
+   </div>
+   <div class="btn-infooooo">
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-building"></i> <?php  echo $row['com_name']; ?> </h2>
+   <h4 class="modal-title text-center">Company Details</h4></div>
+   <div class="modal-body modal-body1">
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Company Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal" action="company.php" method="post">
-                <div class="card-body">
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Company Name</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['com_name']; ?></p>
-                    </div>
-                  </div>
+<hr class="hr2">
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Description</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['com_desc']; ?></p>
-                    </div>
-                  </div>
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Contact</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['com_contact']; ?></p>
-                    </div>
-                  </div>
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Location</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['com_location']; ?></p>
-                    </div>
-                  </div>
 
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Address</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['com_address']; ?></p>
-                    </div>
-                  </div>
 
-                  
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"></label>
-                    
-                
-                  </div>
-                </div>
-                <!-- /.card-body -->
-              </form>
-            </div>
-            <!-- /.card -->
+
+
+      <div class="form-group row">
+    <label  class="col-sm-4  col-form-label"><i class="fas fa-angle-double-right"></i> Company Name</label>
+    <div class="col-sm-6 ">
+      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['com_name']; ?>" readonly >
     </div>
-  </section>
-         </div>
+  </div>
 
-                     <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Description</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['com_desc']; ?>" readonly >
+                      
+                    </div>
+                  </div>
 
-               </div>
-                </div> 
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Contact</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['com_contact']; ?>" readonly >
+                    </div>
+                  </div>
 
-              </div>
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Location</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['com_location']; ?>" readonly >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Address</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['com_address']; ?>" readonly >
+                    </div>
+                  </div>
 
 
-         <!--      End Modal -->
 
 
 
 
 
 
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
+                  </div>
 
 
 
 
+     <br />
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
 
 
 
 
+<!-- 
+  Modal Close -->
 
 
 

@@ -73,75 +73,105 @@ $page = 'supplier';
                         <span class="far fa-eye"></span>
                       </button> 
 
-              <div class="modal fade" id="myModal-<?php echo $row['sup_id']; ?>" role="dialog">
-                <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-                  <div class="modal-content">
-                   <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                   </div>
-                 <div class="modal-body">
-      <section class="content">
-           <div class="container-fluid">
-        <!-- main body start from here -->
 
-        <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Supplier Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+
+
+
+
+                      <!-- modal Start -->
+
+
+<?php $print = ":   " ?>
+<div  class="modal fade" id="myModal-<?php echo $row['sup_id']; ?>" >
+ <div class="modal-dialog modal-dialog1">
+  <div class="modal-content">
+   <div class="modal-header">
+    
+   </div>
+   <div class="btn-infooooo">
+   <h2 class="modal-title text-center"><i class="nav-icon fas fa-building"></i> <?php  echo $row['sup_name']; ?> </h2>
+   <h4 class="modal-title text-center">Supplier Details</h4></div>
+   <div class="modal-body modal-body1">
+
+
+<hr class="hr2">
+
+
+
+
+
+                <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Supplier Name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sup_name']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Contact No.</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sup_contact']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Address</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sup_address']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-4 col-form-label"><i class="fas fa-angle-double-right"></i> Company Name</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row2['com_name']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
               
-                <div class="card-body">
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Supplier Name</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sup_name']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Contact No.</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sup_contact']; ?></p>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Address</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row['sup_address']; ?></p>
-                    </div>
-                  </div>
+                
 
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Company Name</label>
-                    <div class="col-sm-6">
-                      <p style="padding-top :8px;">: <?php echo $row2['com_name']; ?></p>
-                    </div>
+
+
+
+
+
+
+
+
+
+
+                  <hr class="hr2">
+                  <div class="text-center">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">OK</button> 
+                    
                   </div>
 
 
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
-                  </div>
 
-                </div>
-                <!-- /.card-body -->
-            
-            </div>
-            <!-- /.card -->
-    </div>
-  </section>
 
-               </div>
-             <div class="modal-footer">
-           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+     <br />
+   </div>
+   <div class="modal-footer">
+    
+   </div>
+  </div>
+ </div>
+</div>
 
-               </div>
-                </div> 
 
-              </div>
+
+
+<!-- 
+  Modal Close -->
+
 
 
 
