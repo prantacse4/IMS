@@ -11,7 +11,7 @@ if (isset($_POST['update'])) {
   $pro_qty=mysqli_real_escape_string($db->link, $_POST['pro_qty']);
   $pro_price=mysqli_real_escape_string($db->link, $_POST['pro_price']);
   $pro_total_amount=mysqli_real_escape_string($db->link, $_POST['total_amount']);
-  $ref_by='owner';
+  $ref_by=mysqli_real_escape_string($db->link, $_POST['ref_by']);
   $ref_note=mysqli_real_escape_string($db->link, $_POST['ref_note']);
   $query = "UPDATE refund
   SET
@@ -72,6 +72,33 @@ $row = $db->select($query2)->fetch_assoc();
               <!-- form start -->
                <form class="form-horizontal" action="" method="post">
                 <div class="card-body">
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Refund By</label>
+                                        <div class="col-sm-6">
+                      <select class="browser-default custom-select" name="ref_by">
+        <?php 
+            $query4="SELECT * FROM users";
+            $read4=$db->select($query4);
+            if ($read4) {
+          while ($row4=$read4->fetch_assoc()) {
+            if($row['ref_by']==$row4['user_fullname']){
+              ?>
+               <option selected value="<?php echo $row4['user_fullname']; ?>"><?php echo $row4['user_fullname']; ?></option>
+               <?php
+            }
+            else{
+               ?>
+                <option value="<?php echo $row4['user_fullname']; ?>"><?php echo $row4['user_fullname']; ?></option>
+           <?php 
+         }
+             }
+           }
+          ?>
+                      </select>
+                      
+                    </div>
+                  </div>
 
 
                   <div class="form-group row">

@@ -96,12 +96,7 @@ $query2="SELECT * FROM category";
                     </div>
                   </div>
 
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Notes</label>
-                    <div class="col-sm-6">
-                      <input type="text" name="pro_notes" class="form-control"  placeholder="Description about product" Required>
-                    </div>
-                  </div>
+                  
 
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Product Code</label>
@@ -166,7 +161,6 @@ $query2="SELECT * FROM category";
                       <option value="" selected>Select Quantity type</option>
                       <option value="kg">Kg</option>
                       <option value="piece">Piece</option>
-                      <option value="unit">Unit</option>
                       </select>
                 </div>
                     </div>
@@ -214,6 +208,14 @@ $query2="SELECT * FROM category";
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Location</label>
                     <div class="col-sm-6">
                       <input type="text" name="pro_location" class="form-control"  placeholder="Location"  Required>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="pro_notes" class="form-control"  placeholder="Description about product" Required>
                     </div>
                   </div>
 

@@ -1,8 +1,8 @@
 
 <?php  
-$page ='company';
+$page ='sale';
   include 'header3.php';
-  $query="SELECT * FROM purchase order by pur_id DESC";
+  $query="SELECT * FROM sale where sale_due>'0' order by sale_id DESC";
   $read=$db->select($query);
 
 ?>
@@ -14,12 +14,12 @@ $page ='company';
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text2">P u r c h a s e</h1>
+            <h1 class="m-0 text2">S a l e</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Purchase</li>
+              <li class="breadcrumb-item active">Sale</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,19 +36,17 @@ $page ='company';
 
        <div class="card">
             <div class="card-header">
-              <h3 class="card-title card-title2">Purchase Records</h3>
-                <a href="purchase_product.php" class="btn btn-success btn-add"><i class="fa fa-plus"></i> Purchase</a>
+              <h3 class="card-title card-title2">Sale Records</h3>
+                <a href="sale_product.php" class="btn btn-success btn-add"><i class="fa fa-plus"></i>Add Sale</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped forproducttable tablepranta">
                 <thead class="theadcolor">
                 <tr>
-                  <th>
-                  
-                  Purchase Code</th>
-                  <th>Supplier</th>
-                  <th>Total Amount</th>
+                  <th>Sale Code</th>
+                  <th>Customer</th>
+                  <th>Total Price</th>
                   <th>Paid</th>
                   <th>Due</th>
                   <th>Date</th>
@@ -62,38 +60,39 @@ $page ='company';
        ?>
 
                 <tr>
-                  <td>
-                    <?php  
-                    if($row['pur_due']>0){
-                      ?>
-                      <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
-                        <?php
-                    }
-                  ?>
-                   <?php echo "   ".$row['pur_code']; ?></td>
+                 
+
+                     
+                 <td>
+                   <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
+                     <?php echo $row['sale_id']; ?>
+                </td>
+                     
+                    
+                    
                   <td><?php 
-                  $id=$row['pur_supplier'];
-                   $query2="SELECT * FROM supplier where sup_id='$id'";
+                  $id=$row['sale_cus'];
+                   $query2="SELECT * FROM customer where cus_id='$id'";
                    
                     $row2=$db->select($query2)->fetch_assoc();
 
-                    $id2=$row['pur_company'];
-                   $query3="SELECT * FROM company where com_id='$id2'";
-                   
-                    $row3=$db->select($query3)->fetch_assoc();
+                    $name=$row2['cus_name'];
+                    $name.="(";
+                    $name.=$row2['cus_identifier'];
+                    $name.=')';
 
-                  echo $row2['sup_name']; ?></td>
-                  <td><?php echo $row['pur_price']; ?></td>
-                  <td><?php echo $row['pur_paid']; ?></td>
-                  <td><?php echo $row['pur_due']; ?></td>
-                  <td><?php echo $row['pur_date']; ?></td>
+                  echo $name; ?>
+                    
+                  </td>
+                  <td><?php echo $row['sale_amount']; ?></td>
+                  <td><?php echo $row['sale_payment']; ?></td>
+                  <td><?php echo $row['sale_due']; ?></td>
+                  <td><?php echo $row['sale_date']; ?></td>
                   <td>
 
-                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['pur_id']; ?>">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['sale_id']; ?>">
                         <span class="far fa-eye"> </span>
-                      </button>
-                      <a href="purchase_print.php?id=<?php echo $row['pur_id']; ?>" class="btn btn-info">Print</a> 
-
+                      </button> 
 
 
 
@@ -103,14 +102,15 @@ $page ='company';
 
 
 <?php $print = ":   " ?>
-<div  class="modal fade" id="myModal-<?php echo $row['pur_id']; ?>" >
+<div  class="modal fade" id="myModal-<?php echo $row['sale_id']; ?>" >
  <div class="modal-dialog modal-dialog1">
   <div class="modal-content">
    <div class="modal-header">
     
    </div>
    <div class="btn-infooooo">
-   <h4 class="modal-title text-center">Purchase Details</h4></div>
+
+   <h4 class="modal-title text-center">Sale Details</h4></div>
    <div class="modal-body modal-body1">
 
 
@@ -124,12 +124,13 @@ $page ='company';
 
 
                   <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Purchase Code</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Sale Code</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_code']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_id']; ?>" readonly >
                       
                     </div>
                   </div>
+
 
 
 
@@ -137,60 +138,47 @@ $page ='company';
                   <div class="form-group row">
                     <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Date</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_date']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_date']; ?>" readonly >
                       
                     </div>
                   </div>
+
+
+
 
 
 
                   <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Company</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Customer Name</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_company']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $name; ?>" readonly >
                       
                     </div>
                   </div>
+
+
 
 
 
                   <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Supplier</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Sale Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_supplier']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_amount']; ?>" readonly >
                       
                     </div>
                   </div>
+
 
 
 
                   <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Total Price</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Payment</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_price']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_payment']; ?>" readonly >
                       
                     </div>
                   </div>
 
-
-
-                  <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Paid</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_paid']; ?>" readonly >
-                      
-                    </div>
-                  </div>
-
-
-
-                  <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Due</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_due']; ?>" readonly >
-                      
-                    </div>
-                  </div>
 
 
 
@@ -198,7 +186,7 @@ $page ='company';
                   <div class="form-group row">
                     <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Discount</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pur_discount']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_discount']; ?>" readonly >
                       
                     </div>
                   </div>
@@ -206,7 +194,38 @@ $page ='company';
 
 
 
-                  
+
+                   
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Due</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_due']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+                  <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Type</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['sale_type']; ?>" readonly >
+                      
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
 
 
 

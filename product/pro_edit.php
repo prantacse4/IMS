@@ -108,12 +108,7 @@ $query2="SELECT * FROM category";
                     </div>
                   </div>
 
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Notes</label>
-                    <div class="col-sm-6">
-                      <input type="text" name="pro_notes" class="form-control"  placeholder="Description about product" Required value="<?php echo $row['pro_notes'] ?>">
-                    </div>
-                  </div>
+                  
 
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Product Code</label>
@@ -200,7 +195,6 @@ $query2="SELECT * FROM category";
                         ?>
                       <option value="Kg" selected>Kg</option>
                       <option value="Piece">Piece</option>
-                      <option value="Unit">Unit</option>
 
                       <?php } ?>
 
@@ -209,18 +203,10 @@ $query2="SELECT * FROM category";
                         ?>
                       <option value="Kg" >Kg</option>
                       <option value="Piece" selected>Piece</option>
-                      <option value="Unit">Unit</option>
 
                       <?php } ?>
 
-                      <?php 
-                       if($row['pro_type']=="Unit"){
-                        ?>
-                      <option value="Kg" >Kg</option>
-                      <option value="Piece" >Piece</option>
-                      <option value="Unit" selected>Unit</option>
 
-                      <?php } ?>
 
                       </select>
                     </div>
@@ -268,6 +254,14 @@ $query2="SELECT * FROM category";
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Location</label>
                     <div class="col-sm-6">
                       <input type="text" name="pro_location" class="form-control" value="<?php echo $row['pro_location']; ?>"  placeholder="Location"  Required>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="pro_notes" class="form-control"  placeholder="Description about product" Required value="<?php echo $row['pro_notes'] ?>">
                     </div>
                   </div>
 

@@ -14,6 +14,7 @@ $query2="SELECT * FROM category";
 
 ?>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,9 +48,21 @@ $query2="SELECT * FROM category";
             <!-- /.card-header -->
             <div class="card-body" >
               <div style="overflow-x:auto;">
-              <table  id="example1" class="table table-bordered table-striped forproducttable tablepranta" >
+
+
+
+
+                <input class="form-control" id="myInput" type="text" placeholder="Search Category">
+
+
+
+
+
+
+              <table  id="example1"  class="table table-bordered table-striped forproducttable tablepranta" >
                 <thead class="theadcolor">
                 <tr>
+                  <th>Do</th>
                   <th>Product Name</th>
                   <th>Product Code</th>
                   <th>Quantity</th>
@@ -57,7 +70,8 @@ $query2="SELECT * FROM category";
                   <th>Action</th>
                 </tr>
                 </thead>
-                <tbody class="tablepranta2">
+                <tbody class="tablepranta2" id="myTable" >
+
 <?php
        if($read) {
 
@@ -65,14 +79,33 @@ $query2="SELECT * FROM category";
           $cat_id=$row['pro_cat'];
           $query4="SELECT * FROM category where cat_id='$cat_id'";
           $cat=$db->select($query4);
+          $row34=$cat->fetch_assoc();
 
           $com_id=$row['pro_com'];
           $query5="SELECT * FROM company where com_id='$com_id'";
           $com=$db->select($query5);
+          $row35=$com->fetch_assoc();
 
 ?>
 
         <tr>
+          <td><a href="../sale/sale_product.php?id=<?php echo $row['pro_id']; ?>" style="color: white;"> 
+                    <button class="btn btn-success">
+                      Sale
+                    </button>
+                  </a>
+                  <a href="../purchase/purchase_product.php?id=<?php echo $row['pro_id']; ?>" style="color: white;"> 
+                    <button class="btn btn-info">
+                      Purchase
+                    </button>
+                  </a>
+
+                  <a href="print_product.php?id=<?php echo $row['pro_id']; ?>" style="color: white;"> 
+                    <button class="btn btn-success">
+                      Print
+                    </button>
+                  </a>
+          </td>
           <td><?php  echo $row['pro_name'];?></td>
          <td><?php  echo $row['pro_code'];?></td>
          <td><?php  echo $row['pro_qty'];?></td>
@@ -117,6 +150,7 @@ $query2="SELECT * FROM category";
 
 
 
+
         <div class="form-group row">
                     <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Product Name</label>
                     <div class="col-sm-6">
@@ -141,7 +175,7 @@ $query2="SELECT * FROM category";
                     <div class="form-group row">
                     <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Category</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_cat']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row34['cat_name']; ?>" readonly >
                       
                     </div>
                   </div>
@@ -152,7 +186,7 @@ $query2="SELECT * FROM category";
             <div class="form-group row">
                     <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Company</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_com']; ?>" readonly >
+                      <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row35['com_name']; ?>" readonly >
                       
                     </div>
                   </div>
@@ -204,7 +238,7 @@ $query2="SELECT * FROM category";
 
 
                   <div class="form-group row">
-                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Notes</label>
+                    <label  class="col-sm-5 col-form-label"><i class="fas fa-angle-double-right"></i> Description</label>
                     <div class="col-sm-6">
                       <input type="text" class="form-control form-control2  "  value="<?php echo $print; echo $row['pro_notes']; ?>" readonly >
                       
@@ -296,3 +330,14 @@ $query2="SELECT * FROM category";
 <?php
 	include '../inc/footer.php';
 ?>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

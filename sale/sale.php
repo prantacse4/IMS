@@ -46,7 +46,10 @@ $page ='sale';
                 <tr>
                   <th>Sale Code</th>
                   <th>Customer</th>
-                  <th>Price</th>
+                  <th>Total Price</th>
+                  <th>Paid</th>
+                  <th>Due</th>
+                  <th>Date</th>
                   <th>View</th>
                 </tr>
                 </thead>
@@ -57,7 +60,23 @@ $page ='sale';
        ?>
 
                 <tr>
-                  <td><?php echo $row['sale_id']; ?></td>
+                 
+
+                      <?php  
+                    if($row['sale_due']>0){
+                      ?> <td>
+                      <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
+                      <?php echo $row['sale_id']; ?></td>
+                        <?php
+                    }
+                    else{
+                      ?>
+                      <td> &nbsp;
+                     <?php echo $row['sale_id']; ?></td>
+                      <?php
+                    }
+                  ?>
+                    
                   <td><?php 
                   $id=$row['sale_cus'];
                    $query2="SELECT * FROM customer where cus_id='$id'";
@@ -73,11 +92,16 @@ $page ='sale';
                     
                   </td>
                   <td><?php echo $row['sale_amount']; ?></td>
+                  <td><?php echo $row['sale_payment']; ?></td>
+                  <td><?php echo $row['sale_due']; ?></td>
+                  <td><?php echo $row['sale_date']; ?></td>
                   <td>
 
                     <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['sale_id']; ?>">
                         <span class="far fa-eye"> </span>
                       </button> 
+
+                      <a href="sale_print.php?id=<?php echo $row['sale_id']; ?>"  style="color: white;" class="btn btn-info">Print</a>
 
 
 

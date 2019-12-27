@@ -2,7 +2,7 @@
 <?php  
 $page ='company';
   include 'header3.php';
-  $query="SELECT * FROM purchase order by pur_id DESC";
+  $query="SELECT * FROM purchase where pur_due>'0' order by pur_id DESC ";
   $read=$db->select($query);
 
 ?>
@@ -44,9 +44,7 @@ $page ='company';
               <table id="example1" class="table table-bordered table-striped forproducttable tablepranta">
                 <thead class="theadcolor">
                 <tr>
-                  <th>
-                  
-                  Purchase Code</th>
+                  <th>Purchase Code</th>
                   <th>Supplier</th>
                   <th>Total Amount</th>
                   <th>Paid</th>
@@ -63,14 +61,7 @@ $page ='company';
 
                 <tr>
                   <td>
-                    <?php  
-                    if($row['pur_due']>0){
-                      ?>
-                      <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
-                        <?php
-                    }
-                  ?>
-                   <?php echo "   ".$row['pur_code']; ?></td>
+                      <a href="s" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a><?php echo " ".$row['pur_code']; ?></td>
                   <td><?php 
                   $id=$row['pur_supplier'];
                    $query2="SELECT * FROM supplier where sup_id='$id'";
@@ -91,8 +82,7 @@ $page ='company';
 
                     <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['pur_id']; ?>">
                         <span class="far fa-eye"> </span>
-                      </button>
-                      <a href="purchase_print.php?id=<?php echo $row['pur_id']; ?>" class="btn btn-info">Print</a> 
+                      </button> 
 
 
 

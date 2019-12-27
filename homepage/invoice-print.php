@@ -398,12 +398,15 @@ if (isset( $_SESSION['email'])) {
 
         <!-- main body start from here -->
       </div><!-- /.container-fluid -->
-      <div class="text-center"><a href="invoice-print.php" target="_blank" class="btn btn-info"><i class="fas fa-print"></i> Print</a></div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+  <script type="text/javascript"> 
+  window.addEventListener("load", window.print());
+</script>
   <?php 
+
   include "../inc/footer.php";
+  echo "<script>window.location.href='index.php'</script>"; 
   ?>

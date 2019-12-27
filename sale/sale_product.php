@@ -25,7 +25,7 @@ function fill_unit_select_box1($connect)
   $name.=$row['cus_identifier'];
   $name.=')';
   //$name="asdgys";
-  $output .= '<option value="'.$cus.'">'.$name.'</option>';
+  $output .= '<option value="'.$cus.'" data-rc="2">'.$name.'</option>';
  }
  return $output;
 }
@@ -51,7 +51,7 @@ function fill_unit_select_box3($connect)
  $result = $statement->fetchAll();
  foreach($result as $row)
  {
-  $output .= '<option value="'.$row["pro_id"].'" name="'.$row["pro_cat"].'" >'.$row["pro_name"].'</option>';
+  $output .= '<option value="'.$row["pro_id"].'" name="'.$row["pro_cat"].'" data-rc="'.$row['pro_pprice'].'">'.$row["pro_name"].'</option>';
  }
  return $output;
 }
@@ -124,7 +124,7 @@ date_default_timezone_set("Asia/Dhaka");
     <tr>
       <th scope="row">Sale Type</th>
       <td>
-        <select name="sale_type" class="form-control  sale_type" >
+        <select name="sale_type" class="form-control  sale_type" id="test" onchange="f()">
            <option selected value="Regular" >Regular</option>
           <option value="Wholesale" >Wholesale</option>
         </select>
@@ -133,7 +133,7 @@ date_default_timezone_set("Asia/Dhaka");
     
     <tr>
       <th scope="row">Customer</th>
-    <td><select name="cus_id" class="form-control cus_id" required ><option value="">Select Customer</option><?php echo fill_unit_select_box1($connect); ?></select></td>
+    <td><select name="cus_id" class="form-control cus_id" id="cus" required ><option value="">Select Customer</option><?php echo fill_unit_select_box1($connect); ?></select></td>
     </tr>
 
     <tr>
@@ -249,16 +249,18 @@ date_default_timezone_set("Asia/Dhaka");
 
 
 <script>
+
+
 $(document).ready(function(){
  
 var html = '';
   html += '<tr>'; 
   html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove">&#9940;</button></td>';
   
-  html += '<td><select name="pro_id[]" class="form-control pro_id" id="pro_id_0" required ><option value="" required >Select Product</option><?php echo fill_unit_select_box3($connect); ?></select></td>';
+  html += '<td><select name="pro_id[]" class="form-control pro_id" id="pro_id_0" required  onchange="multiple2(0)" ><option value=""  required >Select Product</option><?php echo fill_unit_select_box3($connect); ?></select></td>';
 
   html += '<td><input type="number" name="pro_qty[]" class="form-control pro_qty" onkeyup ="calculate(0)" id="qty-0" required /></td>';
-  html += '<td><input type="number" name="pro_pur_price[]" class="form-control pro_pur_price" onkeyup ="calculate(0)" id="pur-0" readonly/></td>';
+  html += '<td><input type="number" name="pro_pur_price[]" class="form-control pro_pur_price"  id="pur-0" readonly/></td>';
    html += '<td><input type="number" name="sale_price[]" class="form-control sale_price" onkeyup ="calculate(0)" id="sale-0" required /></td>';
 
 
@@ -276,10 +278,10 @@ $('#item_table').append(html);
   html += '<tr>'; 
   html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove">&#9940;</span></button></td>';
 
-  html += '<td><select name="pro_id[]" class="form-control pro_id"><option value="" id="pro_id_'+cnt2+'" required >Select Product</option><?php echo fill_unit_select_box3($connect); ?></select></td>';
+  html += '<td><select name="pro_id[]" class="form-control pro_id" onchange="multiple2('+cnt2+')"><option value="" id="pro_id_'+cnt2+'" required >Select Product</option><?php echo fill_unit_select_box3($connect); ?></select></td>';
 
   html += '<td><input type="number" name="pro_qty[]" class="form-control pro_qty" onkeyup ="calculate('+cnt2+')" id="qty-'+cnt2+'" required /></td>';
-  html += '<td><input type="number" name="pro_pur_price[]" class="form-control pro_pur_price" onkeyup ="calculate('+cnt2+')" id="pur-'+cnt2+'" readonly /></td>';
+  html += '<td><input type="number" name="pro_pur_price[]" class="form-control pro_pur_price"  id="pur-'+cnt2+'" readonly /></td>';
   html += '<td><input type="number" name="sale_price[]" class="form-control sale_price" onkeyup ="calculate('+cnt2+')" id="sale-'+cnt2+'" required /></td>';
   
   html += '<td><input type="number" value ="" name="total_amount[]" class="form-control total_amount" readonly id="total-'+cnt2+'"/></td></tr>';
@@ -419,6 +421,16 @@ document.querySelector("#today2").valueAsDate = new Date();
   discount2();
   payment2();
 }
+function multiple2(x){
+   var e = document.getElementById("pro_id_"+x);
+    var option= e.options[e.selectedIndex];alert(option);
+    var attrs = option.attributes;
+    var datarc = option.getAttribute("data-rc");
+    document.getElementById("pur-"+x).value=datarc;
+    
+}
+
+
 
 
 </script>
