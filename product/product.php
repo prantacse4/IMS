@@ -102,7 +102,7 @@ $query2="SELECT * FROM category";
 
                   <a href="print_product.php?id=<?php echo $row['pro_id']; ?>" style="color: white;"> 
                     <button class="btn btn-success">
-                      Print
+                      <i class="fas fa-print"></i>
                     </button>
                   </a>
           </td>
@@ -288,10 +288,10 @@ $query2="SELECT * FROM category";
 
 
 
-                <a href="pro_edit.php?id=<?php echo $row['pro_id']; ?>" style="color: white;"> 
-                    <button class="btn btn-success">
-                      <span class="fa fa-edit"></span>
-                    </button>
+                <a href="pro_edit.php?id=<?php echo $row['pro_id']; ?>" style="color: white;">
+
+                    <?php echo $edit; ?>
+
                   </a>
 
 
@@ -303,10 +303,8 @@ $query2="SELECT * FROM category";
 
 
 
-                  <a href="pro_delete.php?id=<?php  echo $row['pro_id']; ?>" style="color: white;"> 
-                    <button class="btn btn-danger">
-                      <span class="fa fa-trash-alt"></span>
-                    </button>
+                  <a href="pro_delete.php?id=<?php  echo $row['pro_id']; ?>" style="color: white;"> <?php echo $delete; ?>
+                    
                   </a>
 
 

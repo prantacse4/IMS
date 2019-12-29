@@ -3,6 +3,9 @@
  $page='';
   $page = 'product_list';
   include 'header3.php';
+  if ($user_level == '0') {
+    echo "<script>window.location.href='product.php'</script>";
+  }
 
   //$id=$_GET['id'];
 $id=$_GET['id'];

@@ -14,6 +14,21 @@ $rowsession = $db->select($querysession)->fetch_assoc();
 $namesession = $rowsession['user_fullname'];
 
 
+$user_level =  $rowsession['user_level'];
+if($user_level == '1'){
+    $edit = '<button class="btn btn-success">
+                      <span class="fa fa-edit"></span>
+                    </button>';
+    $delete = '<button class="btn btn-danger">
+                      <span class="fa fa-trash-alt"></span>
+                    </button>';
+}
+else
+{
+ $edit = '';
+ $delete = '';
+}
+
  ?>
 
 <!DOCTYPE html>
@@ -224,26 +239,87 @@ $namesession = $rowsession['user_fullname'];
           </li>
 
 
+
+
+
+
+
+
           <!--   Purchase -->
           <li class="nav-item has-treeview">
-            <a href="../purchase/purchase.php" class="nav-link"  id="product">
+            <a href="#" class="nav-link"  id="product">
               <i class="nav-icon fas fa-baby-carriage"></i>
               <p>
                 Purchase
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item " class=""  >
+                 <a href="../purchase/purchase.php" class="nav-link nav-pranta"  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>Purchase</p>
+                </a>
+              </li>
+              <li class="nav-item" class="">
+                <a href="../purchase/due_purchase.php" class="nav-link nav-pranta "  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>Purchase Due</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a href="../purchase/paid_purchase.php" class="nav-link nav-pranta">
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>Purchase Paid</p>
+                </a>
+              </li>            
+            </ul>
           </li>
+
+
+
+
+
+
+
 
 
           <!--   Sale -->
-          <li class="nav-item has-treeview">
-            <a href="../sale/sale.php" class="nav-link"  id="product">
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link"  id="product">
               <i class="nav-icon fas fa-shopping-cart"></i>
               <p>
                 Sale
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item " class="">
+                <a href="../sale/sale.php" class="nav-link nav-pranta"  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>Sale</p>
+                </a>
+              </li>
+              <li class="nav-item" class="">
+                <a href="../sale/due_sale.php" class="nav-link nav-pranta"  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>Sale Due</p>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a href="../sale/paid_sale.php" class="nav-link nav-pranta ">
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right nav-icon"></i>
+                  <p>Sale Paid</p>
+                </a>
+              </li>            
+            </ul>
           </li>
+
+
+
+
+          
+
 
 
 

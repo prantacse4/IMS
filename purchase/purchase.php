@@ -1,6 +1,6 @@
 
 <?php  
-$page ='company';
+$page ='purchase';
   include 'header3.php';
   $query="SELECT * FROM purchase order by pur_id DESC";
   $read=$db->select($query);
@@ -66,7 +66,7 @@ $page ='company';
                     <?php  
                     if($row['pur_due']>0){
                       ?>
-                      <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
+                      <a href="purchase_pay.php" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
                         <?php
                     }
                   ?>
@@ -92,7 +92,14 @@ $page ='company';
                     <button class="btn btn-info" data-toggle="modal" data-target="#myModal-<?php echo $row['pur_id']; ?>">
                         <span class="far fa-eye"> </span>
                       </button>
-                      <a href="purchase_print.php?id=<?php echo $row['pur_id']; ?>" class="btn btn-info">Print</a> 
+
+                      <a href="purchase_edit.php?id=<?php echo $row['pur_id']; ?>" style="color: white;"> 
+                    <button class="btn btn-success">
+                      <span class="fa fa-edit"></span>
+                    </button>
+                  </a>
+
+                      <a href="purchase_print.php?id=<?php echo $row['pur_id']; ?>" class="btn btn-info"><i class="fas fa-print"></i></a> 
 
 
 

@@ -65,7 +65,7 @@ $page ='sale';
                       <?php  
                     if($row['sale_due']>0){
                       ?> <td>
-                      <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
+                      <a href="sale_pay.php" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
                       <?php echo $row['sale_id']; ?></td>
                         <?php
                     }
@@ -101,7 +101,13 @@ $page ='sale';
                         <span class="far fa-eye"> </span>
                       </button> 
 
-                      <a href="sale_print.php?id=<?php echo $row['sale_id']; ?>"  style="color: white;" class="btn btn-info">Print</a>
+                      <a href="sale_edit.php?id=<?php echo $row['sale_id']; ?>" style="color: white;"> 
+                    <button class="btn btn-success">
+                      <span class="fa fa-edit"></span>
+                    </button>
+                  </a>
+
+                      <a href="sale_print.php?id=<?php echo $row['sale_id']; ?>"  style="color: white;" class="btn btn-info"><i class="fas fa-print"></i></a>
 
 
 

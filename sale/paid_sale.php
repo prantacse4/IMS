@@ -1,6 +1,6 @@
 
 <?php  
-$page ='sale';
+  $page ='paid_sale';
   include 'header3.php';
   $query="SELECT * FROM sale where sale_due='0' order by sale_id DESC";
   $read=$db->select($query);

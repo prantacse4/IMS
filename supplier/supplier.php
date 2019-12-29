@@ -177,14 +177,10 @@ $page = 'supplier';
 
 
                   <a href="supplier_edit.php?id=<?php echo $row['sup_id']; ?>" style="color: white;"> 
-                    <button class="btn btn-success">
-                      <span class="fa fa-edit"></span>
-                    </button>
+                    <?php echo $edit; ?>
                   </a>
                   <a href="supplier_delete.php?id=<?php echo $row['sup_id']; ?>" style="color: white;"> 
-                    <button class="btn btn-danger">
-                      <span class="fa fa-trash-alt"></span>
-                    </button>
+                    <?php echo $delete; ?>
                   </a>
                    
                   </td>

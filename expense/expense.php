@@ -179,14 +179,10 @@ $page ='expense';
 
 
                   <a href="expense_edit.php?id=<?php echo $row['exp_id']; ?>" style="color: white;"> 
-                    <button class="btn btn-success">
-                      <span class="fa fa-edit"></span>
-                    </button>
+                    <?php echo $edit; ?>
                   </a>
                   <a href="expense_delete.php?id=<?php echo $row['exp_id']; ?>" style="color: white;"> 
-                    <button class="btn btn-danger">
-                      <span class="fa fa-trash-alt"></span>
-                    </button>
+                    <?php echo $delete; ?>
                   </a>
                    
                   </td>

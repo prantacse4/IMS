@@ -1,6 +1,6 @@
 
 <?php  
-$page ='company';
+$page='paid_purchase';
   include 'header3.php';
   $query="SELECT * FROM purchase where pur_due='0' order by pur_id DESC ";
   $read=$db->select($query);
