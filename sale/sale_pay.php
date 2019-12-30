@@ -1,8 +1,41 @@
 <?php
 $page='';
-$page ='sale';
+$page = 'sale';
 include 'header3.php';
+$id = $_GET['id'];
+
+if(isset($_POST['update']))
+{
+  $sale_payment = mysqli_real_escape_string($db->link, $_POST['paid']);
+  $sale_due = mysqli_real_escape_string($db->link, $_POST['due']);
+  $pay= mysqli_real_escape_string($db->link, $_POST['pay']);
+  $sale_payment+=$pay;
+  $sale_due-=$pay;
+  $query = "UPDATE sale
+  SET
+    sale_payment='$sale_payment',
+    sale_due = '$sale_due'
+    WHERE sale_id ='$id' ";
+  $update = $db->update($query);
+  if($update){
+       echo "<script>window.location.href='sale.php'</script>"; 
+     }
+     else{
+      echo '$error';
+     }
+}
+
+$query = "SELECT * FROM sale WHERE sale_id = $id";
+$read = $db->select($query);
+$row = $read->fetch_assoc();
+
+$id2 = $row['sale_cus'];
+
+$query2 = "SELECT * FROM Customer WHERE cus_id = $id2";
+$read2 = $db->select($query2);
+$row2 = $read2->fetch_assoc();
 ?>
+
 
 
 
@@ -40,39 +73,39 @@ include 'header3.php';
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="cat_edit.php?id=<?php echo $id; ?>" method="post">
+              <form class="form-horizontal" action="" method="post">
                 <div class="card-body">
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Customer Name</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="text" value="<?php echo $row2['cus_name']; ?>" name="" class="form-control" readonly >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Total Price</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="text" value="<?php echo $row['sale_amount']; ?>" name="" class="form-control" readonly >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Paid Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="text" value="<?php echo $row['sale_payment']; ?>" name="paid" class="form-control" readonly >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Due Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="number" id="due" value="<?php echo $row['sale_due']; ?>" name="due" class="form-control" readonly >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Pay Now</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control"  >
+                      <input type="number" value="" id="pay" name="pay" class="form-control" max="<?php echo $row['sale_due']; ?>" >
                     </div>
                   </div>
 
@@ -98,4 +131,4 @@ include 'header3.php';
 
 <?php
 include '../inc/footer.php';
-?>s
+?>

@@ -61,7 +61,7 @@
 
                 <tr>
                   <td>
-                      <a href="s" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a><?php echo " ".$row['pur_code']; ?></td>
+                      <a href="purchase_pay.php?id=<?php echo $row['pur_id']; ?> " class="btn btn-success"><i class="fa fa-plus"></i> Pay</a><?php echo " ".$row['pur_code']; ?></td>
                   <td><?php 
                   $id=$row['pur_supplier'];
                    $query2="SELECT * FROM supplier where sup_id='$id'";

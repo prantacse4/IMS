@@ -1,8 +1,42 @@
 <?php
 $page='';
-$page ='purchase';
+$page = 'purchase';
 include 'header3.php';
+$id = $_GET['id'];
+
+if(isset($_POST['update']))
+{
+  $pur_paid = mysqli_real_escape_string($db->link, $_POST['paid']);
+  $pur_due = mysqli_real_escape_string($db->link, $_POST['due']);
+  $pay = mysqli_real_escape_string($db->link, $_POST['pay']);
+  $pur_paid+=$pay;
+  $pur_due-=$pay;
+  $query = "UPDATE purchase
+  SET
+    pur_paid='$pur_paid',
+    pur_due = '$pur_due'
+    WHERE pur_id ='$id' ";
+  $update = $db->update($query);
+  if($update){
+       echo "<script>window.location.href='purchase.php'</script>"; 
+     }
+     else{
+      echo '$error';
+     }
+}
+
+$query = "SELECT * FROM purchase WHERE pur_id = $id";
+$read = $db->select($query);
+$row = $read->fetch_assoc();
+
+$id2 = $row['pur_supplier'];
+
+$query2 = "SELECT * FROM supplier WHERE sup_id = $id2";
+$read2 = $db->select($query2);
+$row2 = $read2->fetch_assoc();
 ?>
+
+
 
 
 
@@ -40,45 +74,45 @@ include 'header3.php';
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="cat_edit.php?id=<?php echo $id; ?>" method="post">
+              <form class="form-horizontal" action="" method="post">
                 <div class="card-body">
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Product Code</label>
                     <div class="col-sm-6">
-                      <input type="text" name="" value="" class="form-control" readonly >
+                      <input type="text" name="" value="<?php echo $row['pur_code']; ?>" class="form-control" readonly >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Supplier Name</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="text" value="<?php echo $row2['sup_name']; ?>" name="" class="form-control" readonly >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Total Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="text" value="<?php echo $row['pur_price']; ?>" name="" class="form-control" readonly >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Paid Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="text" value="<?php echo $row['pur_paid']; ?>" name="paid" class="form-control" readonly >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Due Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" readonly >
+                      <input type="number" value="<?php echo $row['pur_due']; ?>" name="due" class="form-control" readonly >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Pay Now</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control"  >
+                      <input type="number" value="" name="pay" class="form-control"  max="<?php echo $row['pur_due']; ?>">
                     </div>
                   </div>
 

@@ -66,7 +66,7 @@ $page ='purchase';
                     <?php  
                     if($row['pur_due']>0){
                       ?>
-                      <a href="purchase_pay.php" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
+                      <a href="purchase_pay.php?id=<?php echo $row['pur_id']; ?> " class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
                         <?php
                     }
                   ?>

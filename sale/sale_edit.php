@@ -1,4 +1,5 @@
 <?php
+$connect = new PDO("mysql:host=localhost;dbname=stock", "root", "");
 $page='';
 $page = 'sale';
 include 'header3.php';
@@ -6,12 +7,18 @@ $id = $_GET['id'];
 
 if(isset($_POST['update']))
 {
-  $cat_name = mysqli_real_escape_string($db->link, $_POST['cat_name']);
-  $cat_desc = mysqli_real_escape_string($db->link, $_POST['cat_desc']);
+   $sale_paid = mysqli_real_escape_string($db->link, $_POST['paid']);
+  $sale_due = mysqli_real_escape_string($db->link, $_POST['due']);
+  $sale_discount = mysqli_real_escape_string($db->link, $_POST['discount']);
+  $sale_customer = mysqli_real_escape_string($db->link, $_POST['cus_id']);
+  $sale_type = mysqli_real_escape_string($db->link, $_POST['sale_type']);
   $query = "UPDATE sale
   SET
-    cat_name='$cat_name',
-    cat_desc = '$cat_desc'
+    sale_payment='$sale_paid',
+  sale_due='$sale_due',
+  sale_discount='$sale_discount',
+  sale_cus='$sale_customer',
+  sale_type='$sale_type'
     WHERE sale_id =$id";
   $update = $db->update($query);
   if($update){
@@ -22,15 +29,16 @@ if(isset($_POST['update']))
      }
 }
 
-$query = "SELECT * FROM sale WHERE sale_id = $id";
-$read = $db->select($query);
-$row = $read->fetch_assoc();
-
-$id2 = $row['sale_cus'];
-
-$query2 = "SELECT * FROM Customer WHERE cus_id = $id2";
+$query2 = "SELECT * FROM sale WHERE sale_id = $id";
 $read2 = $db->select($query2);
 $row2 = $read2->fetch_assoc();
+
+$id2 = $row2['sale_cus'];
+
+$query3 = "SELECT * FROM Customer WHERE cus_id = $id2";
+$read3 = $db->select($query3);
+$row3 = $read3->fetch_assoc();
+
 ?>
 
 
@@ -69,77 +77,104 @@ $row2 = $read2->fetch_assoc();
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal" action="sale_edit.php?id=<?php echo $id; ?>" method="post">
+              <form class="form-horizontal" action="" method="post">
                 <div class="card-body">
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Sale Code</label>
                     <div class="col-sm-6">
-                      <input type="text" name="sale_id" value="<?php echo $row['sale_id'] ?>" class="form-control" Readonly >
+                      <input type="text" name="sale_id" value="<?php echo $row2['sale_id'] ?>" class="form-control" Readonly >
                     </div>
                   </div>
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Sale Customer</label>
                     <div class="col-sm-6">
-                      <input type="text" value="<?php echo $row2['cus_name'] ?>" name="cus_name" class="form-control"  >
+                      <select name="cus_id" class="form-control cus_id" id="cus" required ><option value="">Select Customer</option>
+  <?php 
+            $query4="SELECT * FROM customer";
+            $read4=$db->select($query4);
+            if ($read4) {
+          while ($row4=$read4->fetch_assoc()) {
+              $name="";
+              $name=$row4['cus_name'];
+              $name.="(";
+              $name.=$row4['cus_identifier'];
+              $name.=')';
+            if($row2['sale_cus']==$row4['cus_id']){
+              
+              ?>
+               <option selected value="<?php echo $row4['cus_id']; ?>"><?php echo $name; ?></option>
+               <?php
+            }
+            else{
+               ?>
+                <option value="<?php echo $row4['cus_id']; ?>"><?php echo $name; ?></option>
+           <?php 
+         }
+             }
+           }
+          ?>
+                      </select>
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Sale Type</label>
                     <div class="col-sm-6">
-                      <input type="text" value="<?php echo $row['sale_type'] ?>" name="sale_type" class="form-control"  >
+                      <select name="sale_type" class="form-control sup_id" id="sup_id" required><
+                      <?php
+                        if($row2['sale_type']=='regular'){
+                          ?>
+                          <option selected value="regular">Regular</option>
+                          <option  value="wholesale">Wholesale</option>
+                          <?php
+                        }
+                        else{
+                          ?>
+                          <option value="regular">Regular</option>
+                          <option selected  value="wholesale">Wholesale</option>
+                          <?php
+                        }
+
+
+                      ?>
+
+                      </select>
                     </div>
                   </div>
 
                   <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label"> Total Amount</label>
+                    <label  class="col-sm-2 col-form-label">Total Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="" Readonly placeholder="Automatically Filled" name="" class="form-control"  >
+                      <input type="number" value="<?php echo $row2['sale_amount'] ?>" Readonly placeholder="Automatically Filled" name="total_amount1" id="total_amount1" class="form-control"  >
                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Discount Type</label>
-                    <div class="col-sm-6">
-                      <input type="text" value="<?php echo $row['sale_amount'] ?>" name="sale_cus" class="form-control"  >
-                    </div>
-                  </div>
+                  </div>               
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Total Discount</label>
                     <div class="col-sm-6">
-                      <input type="text" value="<?php echo $row['sale_discount'] ?>" name="sale_discount" class="form-control"  >
+                      <input type="number" id="discount_amount"  value="<?php echo $row2['sale_discount'] ?>" onkeyup="dis()" name="discount" class="form-control"  >
                     </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label  class="col-sm-2 col-form-label">Discount Amount</label>
-                    <div class="col-sm-6">
-                      <input type="text" value="" name="" class="form-control" Readonly placeholder="Automatically Filled"  >
-                    </div>
-                  </div>
-
+                  </div>              
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Payable Amount</label>
                     <div class="col-sm-6">
-                      <input type="text" Readonly placeholder="Automatically Filled" class="form-control"  >
+                      <input type="number" value="<?php $tm=$row2['sale_amount']-$row2['sale_discount'];echo $tm; ?>" Readonly placeholder="Automatically Filled" class="form-control" name="payable_amount" id="payable_amount">
                     </div>
                   </div>
-
 
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Payment</label>
                     <div class="col-sm-6">
-                      <input type="text" value="<?php echo $row['sale_payment'] ?>" name="sale_payment" class="form-control"  >
+                      <input type="number" value="<?php echo $row2['sale_payment'] ?>"  name="paid" id="payment" onkeyup="payment2()" required class="form-control"  >
                     </div>
                   </div>
 
                   <div class="form-group row">
                     <label  class="col-sm-2 col-form-label">Due</label>
                     <div class="col-sm-6">
-                      <input type="number"  name="sale_due" class="form-control" Readonly placeholder="Automatically Filled"  >
+                      <input type="number" value="<?php echo $row2['sale_due'] ?>" class="form-control"  name="due" id="due"  Readonly placeholder="Automatically Filled">
                     </div>
                   </div>
 
@@ -168,3 +203,18 @@ $row2 = $read2->fetch_assoc();
 <?php
 include '../inc/footer.php';
 ?>
+<script type="text/javascript">
+  function dis(){
+  var dis=document.getElementById("discount_amount").value;
+  var pay=document.getElementById("total_amount1").value;
+  document.getElementById("payable_amount").value=pay-dis;
+
+  payment2();
+}
+
+ function payment2(){
+      var payable=document.getElementById("payable_amount").value;
+     var pay=document.getElementById("payment").value;
+      document.getElementById("due").value=payable-pay;
+}
+</script>

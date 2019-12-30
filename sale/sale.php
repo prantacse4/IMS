@@ -65,7 +65,7 @@ $page ='sale';
                       <?php  
                     if($row['sale_due']>0){
                       ?> <td>
-                      <a href="sale_pay.php" class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
+                      <a href="sale_pay.php?id=<?php echo $row['sale_id']; ?> " class="btn btn-success"><i class="fa fa-plus"></i> Pay</a>
                       <?php echo $row['sale_id']; ?></td>
                         <?php
                     }
