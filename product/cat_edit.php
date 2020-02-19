@@ -24,6 +24,10 @@ if(isset($_POST['update']))
       echo '$error';
      }
 }
+if (isset($_POST['goback'])) {
+  echo "<script>window.location.href='category.php'</script>"; 
+}
+
 
 $query = "SELECT * FROM category WHERE cat_id = $id";
 $row = $db->select($query)->fetch_assoc();
@@ -85,7 +89,10 @@ $row = $db->select($query)->fetch_assoc();
                     <div class="col-sm-4">
                       <button type="submit" name="update" class="btn btn-success btn-2">Update</button>
                       <button type="reset" class="btn btn-danger btn-2">Reset</button>
-                      <a class="btn btn-info " href="category.php">Go Back</a>
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">Go Back</button>
+                      
+
+                     <!--  href="category.php" -->
                       
                     </div>
                   </div>
@@ -95,6 +102,39 @@ $row = $db->select($query)->fetch_assoc();
             </div>
             <!-- /.card -->
 
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Confirm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure to go back?
+      </div>
+      <div class="modal-footer">
+          <button type="button" onclick="javascript:window.location.href='category.php';" name="goback" class="btn btn-primary">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+          <!--   modal end
+ -->
 	   
     </div>
   </section>

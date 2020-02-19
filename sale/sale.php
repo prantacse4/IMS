@@ -37,7 +37,7 @@ $page ='sale';
        <div class="card">
             <div class="card-header">
               <h3 class="card-title card-title2">Sale Records</h3>
-                <a href="sale_product.php" class="btn btn-success btn-add"><i class="fa fa-plus"></i>Add Sale</a>
+                <a href="sale_product22.php" class="btn btn-success btn-add"><i class="fa fa-plus"></i>Add Sale</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
